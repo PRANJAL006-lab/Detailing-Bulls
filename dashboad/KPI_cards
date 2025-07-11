@@ -1,0 +1,20 @@
+# components/kpi_cards.py
+from dash import html
+
+def generate_kpi_cards(total_revenue, total_transactions, avg_ticket):
+    return html.Div([
+        html.Div([
+            html.H4("Total Revenue"),
+            html.H2(f"₹{total_revenue:,.2f}", className="kpi")
+        ], className="three columns kpi-box"),
+
+        html.Div([
+            html.H4("Total Transactions"),
+            html.H2(f"{total_transactions}", className="kpi")
+        ], className="three columns kpi-box"),
+
+        html.Div([
+            html.H4("Average Ticket Size"),
+            html.H2(f"₹{avg_ticket:,.2f}", className="kpi")
+        ], className="three columns kpi-box")
+    ], className="row")
