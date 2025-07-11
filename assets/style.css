@@ -1,0 +1,46 @@
+/* assets/style.css */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+}
+
+.main-title {
+    text-align: center;
+    color: #1E3A8A;
+    padding: 20px 0;
+}
+
+.filters {
+    padding: 20px;
+}
+
+.kpis {
+    margin: 20px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.kpi-box {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.kpi {
+    color: #16A34A;
+    font-weight: bold;
+}
+
+.data-table {
+    padding: 20px;
+}
+
+.graphs {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
