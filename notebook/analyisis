@@ -1,0 +1,41 @@
+# notebooks/analysis.ipynb (Python code content)
+# Exploratory Data Analysis on Detailing Bulls Synthetic Dataset
+
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load the dataset
+df = pd.read_csv("../data/detailing_data.csv")
+df['Date of Service'] = pd.to_datetime(df['Date of Service'])
+
+# --- Revenue by City ---
+plt.figure(figsize=(10, 6))
+df.groupby('City')['Amount'].sum().sort_values().plot(kind='barh', color='teal')
+plt.title("Total Revenue by City")
+plt.xlabel("Revenue (₹)")
+plt.ylabel("City")
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+
+# --- Service Type Distribution ---
+plt.figure(figsize=(8, 6))
+df['Service'].value_counts().plot(kind='pie', autopct='%1.1f%%', startangle=140, colors=sns.color_palette('pastel'))
+plt.title("Service Distribution")
+plt.ylabel('')
+plt.axis('equal')
+plt.tight_layout()
+plt.show()
+
+# --- Weekly Revenue Trend ---
+df.set_index('Date of Service', inplace=True)
+weekly_revenue = df['Amount'].resample('W').sum()
+plt.figure(figsize=(14, 6))
+weekly_revenue.plot(color='purple')
+plt.title("Weekly Revenue Trend")
+plt.xlabel("Week")
+plt.ylabel("Revenue (₹)")
+plt.grid(True)
+plt.tight_layout()
+plt.show()
